@@ -2,12 +2,15 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import reducer from './reducer';
-import saga from './saga';
+import {watchLoadMovies} from './saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+	reducer, 
+	applyMiddleware(sagaMiddleware)
+);
 
-sagaMiddleware.run(saga);
+sagaMiddleware.run(watchLoadMovies);
 
 export default store;

@@ -1,0 +1,24 @@
+.center-div {
+	margin: 10px auto;
+    text-align: center;
+}
+
+.results-title {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.btn-result {
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:15px;
+	font-weight: bold;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.btn-result:hover {
+	background-color:#f6f6f6;
+}

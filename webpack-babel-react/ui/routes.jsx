@@ -1,7 +1,7 @@
 import { Route } from 'react-router';
 
-import Index from './index/component';
+import SearchForm from './index/SearchForm';
 
 export default (
-  <Route path="/" component={Index} />
+  <Route path="/" component={SearchForm} />
 );
