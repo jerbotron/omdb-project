@@ -1,13 +1,21 @@
-const API_KEY = 'b5efd2e8';
-const API_SEARCH_ENDPOINT = 'http://www.omdbapi.com/?s=';
-const API_DETAILS_ENDPOINT = 'http://www.omdbapi.com/?i={MOVIE_ID}&plot=full&r=json';
+/*
+	Methods related to fetching movie data at the OMdB endpoints 
+*/
 
 export const fetchSearchResults = (searchText) => {
-	var searchURL = API_SEARCH_ENDPOINT + searchText;
-  	return fetch(searchURL).then(function (response) {
-    	return response.json().then(function (json) {
-    		console.log(json);
-    		return json;
-    	})
+	const API_SEARCH_ENDPOINT = 'http://www.omdbapi.com/?s=' + searchText;
+	return fetch(API_SEARCH_ENDPOINT).then(function (response) {
+  	return response.json().then(function (json) {
+  		return json;
   	})
+  })
+};
+
+export const fetchMovieDetails = (movieId) => {
+	const API_DETAILS_ENDPOINT = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&r=json';
+	return fetch(API_DETAILS_ENDPOINT).then(function (response) {
+  	return response.json().then(function (json) {
+  		return json;
+  	})
+  })
 };

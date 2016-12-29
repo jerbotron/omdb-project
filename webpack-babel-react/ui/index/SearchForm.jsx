@@ -3,9 +3,17 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import SearchResults from './SearchResults';
+import SearchDetails from './SearchDetails';
 
 import * as SearchFormActions from "../actions";
 
+/*
+  Main react component user interacts with:
+  - SearchForm composes of the input forms for user to type in a search string
+  - SearchDetails contains the popup modal for the details of a selected movie
+  - SearchResults contains the HTML to display search results in a 2 column table 
+    format
+*/
 export class SearchForm extends React.Component {
   constructor(props) {
     super(props);
@@ -23,24 +31,26 @@ export class SearchForm extends React.Component {
   }
 
   render() {
-    const {movies} = this.props;
-    console.log(movies);
+    const {movies, selectedMovie, selectMovie} = this.props;
     return (
     	<div className="container">
   			<form className="center-div" onSubmit={this.handleSubmit}>
   				<label>
   					Search titles:
+            &nbsp;
   					<input type="text" placeholder="Toy Story 3" ref={(input) => this.input = input} />
   				</label>
-  				<input type="submit" value="FIND MY MOVIES!" />
+          <br />
+  				<input type="submit" className="btn-search" value="FIND MY MOVIES!" />
   			</form>
-  			<SearchResults movies={movies}/>
-		</div>
+        <SearchDetails selectedMovie={selectedMovie} selectMovie={selectMovie} />
+  			<SearchResults movies={movies} selectMovie={selectMovie} />
+		  </div>
     );
   }
 }
 
 export default connect(
-  state => ({movies: state.movies}),
+  state => ({movies: state.movies, selectedMovie: state.selectedMovie}),
   dispatch => bindActionCreators(SearchFormActions, dispatch)
 )(SearchForm)

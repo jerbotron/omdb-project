@@ -1,17 +1,16 @@
-const LOAD_MOVIES = 'LOAD_MOVIES';
-const SELECT_MOVIE = 'SELECT_MOVIE';
+const LOAD_MOVIES		= 'LOAD_MOVIES';
+const SELECT_MOVIE 	= 'SELECT_MOVIE';
 
-export function selectMovie(movie) {
+export function loadMovies(searchText) {
   return {
-    type: SELECT_MOVIE,
-    movie
+    type: LOAD_MOVIES,
+    searchText
   }
 }
 
-export function loadMovies(value) {
-  console.log("loading movies");
+export function selectMovie(movieId) {
   return {
-    type: LOAD_MOVIES,
-    value: value
+    type: SELECT_MOVIE,
+    movieId
   }
 }
