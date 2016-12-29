@@ -1,4 +1,4 @@
-# webpack-babel-react: plug and play starter kit for webpack and react
+# jw-omdb-project: omdb project submission by Jeremy Wang
 
 ## Prerequisites
 

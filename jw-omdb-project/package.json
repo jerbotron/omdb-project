@@ -1,5 +1,5 @@
 {
-  "name": "webpack-babel-react",
+  "name": "jw-omdb-project",
   "version": "0.0.0",
   "scripts": {
     "build": "npm run vendor && webpack",
